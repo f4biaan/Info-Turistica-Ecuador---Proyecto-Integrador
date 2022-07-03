@@ -137,11 +137,11 @@ DROP TABLE IF EXISTS `catastro_turistico`.`parroquias` ;
 
 CREATE TABLE IF NOT EXISTS `catastro_turistico`.`parroquias` (
   `cod_parroquias` CHAR(6) NOT NULL,
-  `nombre` VARCHAR(60) NULL,
+  `nombre` VARCHAR(60) NOT NULL,
   `cod_canton` CHAR(4) NOT NULL,
   PRIMARY KEY (`cod_parroquias`),
   INDEX `fk_parroq_cant_idx` (`cod_canton` ASC) VISIBLE,
-  CONSTRAINT `fk_parroquias_cantones1`
+  CONSTRAINT `fk_parroquias_cantones`
     FOREIGN KEY (`cod_canton`)
     REFERENCES `catastro_turistico`.`cantones` (`cod_canton`)
     ON DELETE NO ACTION
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `catastro_turistico`.`establecimientos` (
   `puntuacion` VARCHAR(4) NULL,
   `id_sub_act` INT NOT NULL,
   `id_categoria_1` INT NOT NULL,
-  `id_categoria_2` INT null,
+  `id_categoria_2` INT NULL,
   `id_contacto` INT NULL,
   `cod_parroquias` CHAR(6) NOT NULL,
   PRIMARY KEY (`id_estab`),
@@ -207,7 +207,7 @@ DROP TABLE IF EXISTS `catastro_turistico`.`clase_guia` ;
 
 CREATE TABLE IF NOT EXISTS `catastro_turistico`.`clase_guia` (
   `id_clase_guia` INT NOT NULL,
-  `descripcion` VARCHAR(50) NULL,
+  `descripcion` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id_clase_guia`))
 ENGINE = InnoDB;
 
