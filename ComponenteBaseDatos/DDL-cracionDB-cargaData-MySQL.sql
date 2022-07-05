@@ -429,7 +429,7 @@ LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/capacidad.csv'
 -- -----------------------------------------------------
 -- Create USER
 -- -----------------------------------------------------
-
+DROP USER grupo_a@localhost;
 CREATE USER grupo_a@localhost IDENTIFIED BY 'grupoa';
 GRANT SELECT ON catastro_turistico.* to grupo_a@localhost;
 
