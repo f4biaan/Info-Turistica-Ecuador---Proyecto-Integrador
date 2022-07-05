@@ -426,6 +426,13 @@ LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/capacidad.csv'
   LINES TERMINATED BY '\n'
   IGNORE 1 LINES;
 
+-- -----------------------------------------------------
+-- Create USER
+-- -----------------------------------------------------
+
+CREATE USER grupo_a@localhost IDENTIFIED BY 'grupoa';
+GRANT SELECT ON catastro_turistico.* to grupo_a@localhost;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
